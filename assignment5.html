@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assignment 5: Feedback Page</title>
+</head>
+<body>
+  <header>
+    <h1>Feedback Form</h1>
+  </header>
+
+  <main>
+    <section>
+      <article>
+        <form id="feedbackForm">
+          <label for="name">Name (required):</label><br />
+          <input type="text" id="name" name="name" placeholder="Your Name" required /><br /><br />
+
+          <label for="feedback">Your Feedback:</label><br />
+          <textarea id="feedback" name="feedback" rows="4" cols="40" placeholder="Write your feedback here..."></textarea><br /><br />
+
+          <button type="submit">Submit</button>
+        </form>
+        <p id="confirmation" style="color: green;"></p>
+      </article>
+    </section>
+
+    <aside>
+      <h2>What are localStorage and sessionStorage?</h2>
+      <p>
+        <strong>localStorage</strong> and <strong>sessionStorage</strong> are web storage options provided by modern browsers that allow websites to store data directly in a user's browser.
+      </p>
+      <p>
+        <strong>localStorage</strong> stores data with no expiration time, meaning the data remains even after the browser is closed and reopened.
+      </p>
+      <p>
+        <strong>sessionStorage</strong> stores data for the duration of the page session. The data is cleared once the browser tab is closed.
+      </p>
+      <p>
+        These are often used to save user preferences, temporary form inputs, or small pieces of data without needing a server.
+      </p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Assignment 5: Feedback Page with Web Storage</p>
+  </footer>
+
+  <script>
+    const nameInput = document.getElementById('name');
+    const feedbackInput = document.getElementById('feedback');
+    const confirmation = document.getElementById('confirmation');
+
+    // Load saved data on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedName = localStorage.getItem('userName');
+      const savedFeedback = localStorage.getItem('userFeedback');
+
+      if (savedName) nameInput.value = savedName;
+      if (savedFeedback) feedbackInput.value = savedFeedback;
+    });
+
+    // Save data on form submit
+    document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // prevent page refresh
+
+      localStorage.setItem('userName', nameInput.value);
+      localStorage.setItem('userFeedback', feedbackInput.value);
+
+      confirmation.textContent = 'Your feedback has been saved!';
+    });
+  </script>
+</body>
+</html>
