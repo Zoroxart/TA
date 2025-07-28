@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaccination Record Tracker</title>
+</head>
+<body>
+  <h2>Vaccination Record</h2>
+
+  <label>Patient ID: <input type="text" id="patientId" /></label><br>
+  <label>Vaccine Name: <input type="text" id="vaccineName" /></label><br>
+  <button id="createRecordBtn">Create Record</button>
+
+  <hr>
+
+  <h3>Add Dose</h3>
+  <label>Dose No: <input type="number" id="doseNo" /></label><br>
+  <label>Date Given: <input type="date" id="dateGiven" /></label><br>
+  <label>Nurse Name: <input type="text" id="nurseName" /></label><br>
+  <button id="addDoseBtn" disabled>Add Dose</button>
+
+  <hr>
+
+  <button id="showHistoryBtn" disabled>Show Dose History</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    let patientRecord = null;
+
+    function createVaccinationRecord(patientId, vaccineName) {
+      const id = patientId;
+      const vaccine = vaccineName;
+      const doses = [];
+
+      function addDose(doseNo, dateGiven, nurseName) {
+        const dose = {
+          doseNo,
+          date: new Date(dateGiven),
+          nurse: nurseName
+        };
+        doses.push(dose);
+
+        log(` Dose ${doseNo} added for ${id}`);
+      }
+
+      function showDoseHistory() {
+        if (doses.length === 0) {
+          log(`ℹ No doses recorded for ${id}`);
+          return;
+        }
+
+        log(`📋 Dose History for Patient ID: ${id}, Vaccine: ${vaccine}`);
+        doses.forEach(dose => {
+          log(`  • Dose ${dose.doseNo} on ${dose.date.toDateString()} by Nurse ${dose.nurse}`);
+        });
+      }
+
+      return { addDose, showDoseHistory };
+    }
+
+    function log(message) {
+      const output = document.getElementById('output');
+      output.textContent += message + "\n";
+    }
+
+    document.getElementById('createRecordBtn').addEventListener('click', () => {
+      const pid = document.getElementById('patientId').value.trim();
+      const vaccine = document.getElementById('vaccineName').value.trim();
+
+      if (!pid || !vaccine) {
+        alert("Please enter both Patient ID and Vaccine Name.");
+        return;
+      }
+
+      patientRecord = createVaccinationRecord(pid, vaccine);
+      document.getElementById('addDoseBtn').disabled = false;
+      document.getElementById('showHistoryBtn').disabled = false;
+      log(` Record created for Patient ID: ${pid}, Vaccine: ${vaccine}`);
+    });
+
+    document.getElementById('addDoseBtn').addEventListener('click', () => {
+      const doseNo = parseInt(document.getElementById('doseNo').value);
+      const dateGiven = document.getElementById('dateGiven').value;
+      const nurse = document.getElementById('nurseName').value.trim();
+
+      if (!doseNo || !dateGiven || !nurse) {
+        alert("Please fill all dose fields.");
+        return;
+      }
+
+      patientRecord.addDose(doseNo, dateGiven, nurse);
+    });
+
+    document.getElementById('showHistoryBtn').addEventListener('click', () => {
+      patientRecord.showDoseHistory();
+    });
+  </script>
+</body>
+</html>
