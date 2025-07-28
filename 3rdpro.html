@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <style>
+        #navbar{
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            font-size: medium;
+            background-color: lightblue;
+            padding: 20px;
+            margin-left: 0px;
+            flex-direction: row;
+        }
+        h1{
+            margin-top: 100px;
+        }
+        footer{
+            background-color: lightgray;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="navbar">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#video">Video</a>
+                <a href="#audio">Audio</a>
+                <a href="#article">Article</a>
+            </nav>
+        </div>
+        <h1>HTML semantic tags</h1>
+    </header>
+    <main id="home">
+        <h2>This is the 3rd Assignment</h2>
+        <p>
+            The objective is make use of semantic tags and embed video and audio.
+            I have created this webpage with semantic tags, this content is inside main tag
+        </p>
+    </main>
+    <article id="article">
+        <h2>New features in HTML 5</h2>
+        <p>(this conent is present in article tag)</p>
+        <ul>
+            <li>Audio and Video</li>
+            <li>Vector Graphics</li>
+            <li>Header and Footer</li>
+            <li>Figure and Figcaption</li>
+            <li>HTML Nav Tag</li>
+        </ul>
+    </article>
+    <section id="video">
+        <p>This is a section with a video embed</p>
+        <video width="1280" height="720" controls>
+            <source src="/Media/maow.mp4" type="video/mp4">
+            <source src="/Media/maow.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+    </section>
+    <section id="audio">
+        <p>This is a section with audio embed</p>
+        <audio controls>
+            <source src="/Media/HXI - Lock n' Load  Phonk  NCS - Copyright Free Music.mp3" type="audio/mpeg">
+            <source src="/Media/HXI - Lock n' Load  Phonk  NCS - Copyright Free Music.mp3" type="audio/ogg">
+            Your browser does not support the audio tag.
+    </section>
+    <footer>
+        <p>Created by Darshan</p>
+        <p>FSD assignment 3</p>
+    </footer>
+</body>
+</html>
