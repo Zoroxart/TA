@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2</title>
+  <style>
+    /* Question 1 */
+    h1 {
+      text-align: center;
+    }
+    p {
+      color: darkgrey;
+    }
+
+    /* Question 2 */
+    a {
+      color: darkblue;
+      text-decoration: none;
+    }
+    a:hover {
+      color: orange;
+    }
+
+    /* Question 3 */
+    .box {
+      border: 1px solid black;
+      padding: 20px;
+      background-color: lightgrey;
+    }
+
+    /* Question 4 */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #007BFF;
+      color: white;
+    }
+
+    /* Question 5 */
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: lightblue;
+    }
+    .container > div {
+      border: 1px solid black;
+    }
+
+    /* Question 6 */
+    .card {
+      border: 1px solid black;
+      padding: 10px;
+    }
+    .card:hover {
+      box-shadow: 10px 10px black;
+      transition: ease-in-out 1s;
+    }
+
+    /* Question 7 */
+    tr:nth-child(odd) {
+      background-color: lightgreen;
+    }
+
+    tr:nth-child(even) {
+      background-color: lightblue;
+    }
+
+    /* Question 8 */
+
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+
+    .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: red;
+        z-index: 1;
+        background-color: white;
+        padding: 2px 6px;
+        font-weight: bold;
+    }
+
+
+    .badge {
+      position: absolute;
+      color: red;
+      z-index: 1;
+    }
+
+    /* Question 9 */
+    .title {
+      font-size: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 20px;
+      }
+    }
+
+    /* Question 10 */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Question 1 -->
+  <section>
+    <h1>About Us</h1>
+    <p style="font-size: 20px;">We are a team of developers building cool stuff.</p>
+  </section>
+
+  <!-- Question 2 -->
+  <section>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </section>
+
+  <!-- Question 3 -->
+  <section>
+    <div class="box">This is a styled box.</div>
+  </section>
+
+  <!-- Question 4 -->
+  <section>
+    <button class="btn">Submit</button>
+  </section>
+
+  <!-- Question 5 -->
+  <section>
+    <div class="container">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </div>
+  </section>
+
+  <!-- Question 6 -->
+  <section>
+    <div class="card">
+      <h3>Product Title</h3>
+      <p>Some product description goes here.</p>
+    </div>
+    <!-- Question 7 -->
+    <table>
+      <tr><td>Row 1</td></tr>
+      <tr><td>Row 2</td></tr>
+      <tr><td>Row 3</td></tr>
+      <tr><td>Row 4</td></tr>
+    </table>
+    <!-- Question 8 -->
+    <div class="image-container">
+      <img src="/Media/product.jpeg" alt="Product" width="400">
+      <span class="badge">New</span>
+    </div>
+  </section>
+
+  <!-- Question 9 -->
+  <section>
+    <h1 class="title">Responsive Heading</h1>
+  </section>
+
+  <!-- Question 10 -->
+  <section>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+    </nav>
+  </section>
+
+</body>
+</html>
